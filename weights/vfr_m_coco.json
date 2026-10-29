@@ -1,0 +1,52 @@
+{
+  "model": "VFR-M",
+  "format": "TorchScript inference-only",
+  "sha256": "f1a07077fa167593e96e2096f10e06daeeaf5a86245b0e244c3823349cb232cd",
+  "source_checkpoint_sha256": "48abf41aacfbfd2732896a97549deca2cc390de020ace27f4b6889f2dd95b56e",
+  "source_weights": "ema.module",
+  "checkpoint_epoch": 55,
+  "source_model_parameters": 21364747,
+  "input_shape": [
+    "batch",
+    3,
+    640,
+    640
+  ],
+  "evaluation_batch_size": 12,
+  "position_embedding": "current_non_in_place",
+  "precision": "FP32",
+  "soft_mask": [
+    {
+      "temperature": 4.918985947228995,
+      "min_value": 0.030050978060823907
+    },
+    {
+      "temperature": 4.918985947228995,
+      "min_value": 0.030050978060823907
+    },
+    {
+      "temperature": 4.918985947228995,
+      "min_value": 0.030050978060823907
+    },
+    {
+      "temperature": 4.918985947228995,
+      "min_value": 0.030050978060823907
+    }
+  ],
+  "paper_reported_ap_points": 70.6,
+  "historical_training_log_metrics_not_release_evaluation": [
+    0.7057185265537029,
+    0.892922211626573,
+    0.7667416600931413,
+    0.6433412434336907,
+    0.8029152745259164,
+    0.7676794710327457,
+    0.9378148614609572,
+    0.8272984886649875,
+    0.7049440043703906,
+    0.8554812337421034
+  ],
+  "torch": "2.4.0+cu121",
+  "cuda": "12.1",
+  "export_device": "NVIDIA GeForce RTX 2080 Ti"
+}
