@@ -1,0 +1,15 @@
+VFR inference and evaluation release
+
+This release includes modified model inference artifacts derived from DETRPose:
+https://github.com/SebastianJanampa/DETRPose
+Upstream project license: Apache License, Version 2.0.
+
+Attributions retained from the underlying source:
+Modified from Conditional DETR. Copyright (c) 2021 Microsoft.
+Modified from DETR. Copyright (c) Facebook, Inc. and its affiliates.
+Modified from Deformable DETR. Copyright (c) 2020 SenseTime.
+DETRPose also acknowledges D-FINE, Detectron2, and GroupPose.
+
+Modifications in this release: VFR visibility-aware refinement; checkpoint-specific
+inference settings; stripped inference-only graph packaging and evaluation tools.
+This release does not distribute third-party training or evaluation datasets.

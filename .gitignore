@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.venv/
+weights/*.pt
+weights/*.pth
+results/
+*.zip
+*.tar.gz
+.DS_Store

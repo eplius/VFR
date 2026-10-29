@@ -1,0 +1,5 @@
+# Direct dependencies for the validated inference/evaluation environment.
+torch==2.4.0
+numpy==1.26.4
+Pillow==11.1.0
+pycocotools==2.0.10
