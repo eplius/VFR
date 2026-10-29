@@ -1,0 +1,36 @@
+{
+  "model": "VFR-S",
+  "dataset": "COCO val2017",
+  "images": 5000,
+  "full_dataset": true,
+  "standard_val2017_count": true,
+  "metrics": {
+    "AP": 0.6755223785534173,
+    "AP50": 0.875132145878552,
+    "AP75": 0.7336845115725212,
+    "APM": 0.6111899453491815,
+    "APL": 0.777404564322257,
+    "AR": 0.7413727959697732,
+    "AR50": 0.9264798488664987,
+    "AR75": 0.7989609571788413,
+    "ARM": 0.6744059000273148,
+    "ARL": 0.8352285395763657
+  },
+  "metric_scale": "0-1; multiply by 100 for AP points",
+  "checkpoint_sha256": "5a514fb0ecd19936fd68a503409cd2f140b71790d6b1a19f4d92bd3074015061",
+  "annotations_sha256": "788e2dae83c86bd547be7fab269d6399df5671063d29a61360cdb2cc370d2b14",
+  "precision": "CUDA AMP FP16 (baked into graph)",
+  "position_embedding": "legacy",
+  "torch": "2.4.0+cu121",
+  "cuda": "12.1",
+  "gpu": "NVIDIA GeForce RTX 2080 Ti",
+  "batch_size": 1,
+  "input_size": [
+    640,
+    640
+  ],
+  "max_dets": 20,
+  "nms": false,
+  "score_threshold": null,
+  "elapsed_seconds": 482.5747323469259
+}

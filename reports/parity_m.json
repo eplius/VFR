@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "samples": [
+    {
+      "image": "000000000139.jpg",
+      "max_abs": {
+        "logits": 3.5762786865234375e-06,
+        "keypoints": 8.195638656616211e-07
+      }
+    },
+    {
+      "image": "000000000285.jpg",
+      "max_abs": {
+        "logits": 1.9073486328125e-06,
+        "keypoints": 5.960464477539062e-07
+      }
+    },
+    {
+      "image": "000000000632.jpg",
+      "max_abs": {
+        "logits": 2.86102294921875e-06,
+        "keypoints": 1.7881393432617188e-07
+      }
+    }
+  ],
+  "atol": 0.0002,
+  "rtol": 0.0002,
+  "note": "Three-image graph parity, not a full AP verification."
+}

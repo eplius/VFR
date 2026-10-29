@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "samples": [
+    {
+      "image": "000000000139.jpg",
+      "max_abs": {
+        "logits": 0.0,
+        "keypoints": 0.0
+      }
+    },
+    {
+      "image": "000000000285.jpg",
+      "max_abs": {
+        "logits": 0.0,
+        "keypoints": 0.0
+      }
+    },
+    {
+      "image": "000000000632.jpg",
+      "max_abs": {
+        "logits": 0.0,
+        "keypoints": 0.0
+      }
+    }
+  ],
+  "atol": 0.0002,
+  "rtol": 0.0002,
+  "note": "Three-image graph parity, not a full AP verification."
+}
