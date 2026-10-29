@@ -43,6 +43,44 @@ soft-gate constants are stored in each exported model.
 
 ### Paper results
 
+**Table 2. Performance comparison on COCO val2017.** Best results among
+lightweight end-to-end methods are shown in **bold**; within each block, rows
+above the separator list larger models, and rows below list lightweight models.
+The marked "Lightweight models" rows below serve as the manuscript's separators.
+
+**Non-end-to-end methods**
+
+| Method | Backbone | Parameters (M) | AP | AP<sub>50</sub> | AP<sub>75</sub> | AP<sub>M</sub> | AP<sub>L</sub> | AR |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| DirectPose | ResNet-50 | - | 63.1 | 85.6 | 68.8 | 57.7 | 71.3 | - |
+| CenterNet | Hourglass-104 | 194.9 | 64.0 | - | - | - | - | - |
+| FCPose | ResNet-101 | 60.5 | 63.0 | 85.9 | 68.9 | 59.1 | 70.3 | - |
+| InsPose | ResNet-50 | 50.2 | 63.1 | 86.2 | 68.5 | 58.5 | 70.1 | - |
+| **Lightweight models** | | | | | | | | |
+| YOLOv8-S | CSPDarknet | 11.6 | 60.0 | 86.2 | 65.9 | 53.8 | 70.2 | 66.7 |
+| YOLOv8-S\* | CSPDarknet | 11.6 | 59.9 | 85.8 | 65.9 | 53.7 | 70.1 | 66.3 |
+| YOLO11-S | CSPDarknet | 9.9 | 58.9 | 86.2 | 64.8 | 54.0 | 67.9 | 66.1 |
+| YOLO11-S\* | CSPDarknet | 9.9 | 58.7 | 85.9 | 64.5 | 53.8 | 67.8 | 65.6 |
+| RTMO-S | CSPDarknet | 9.9 | 67.7 | 87.8 | 73.7 | - | - | 71.5 |
+
+**End-to-end methods**
+
+| Method | Backbone | Parameters (M) | AP | AP<sub>50</sub> | AP<sub>75</sub> | AP<sub>M</sub> | AP<sub>L</sub> | AR |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| PETR | ResNet-50 | 43.7 | 68.8 | 87.5 | 76.3 | 62.7 | 77.7 | - |
+| GroupPose | ResNet-50 | 52.4 | 72.0 | 89.4 | 79.1 | 66.8 | 79.7 | 72.0 |
+| DETRPose-L | HGNetv2-B4 | 32.8 | 72.5 | 90.6 | 79.0 | - | - | 78.7 |
+| **Lightweight models** | | | | | | | | |
+| YOLO26-S | CSPDarknet | 10.4 | 63.0 | 86.6 | - | - | - | - |
+| DETRPose-S | HGNetv2-B0 | 11.51 | 67.0 | **87.6** | 72.8 | - | - | 73.5 |
+| VFR-S | HGNetv2-B0 | 11.75 | **67.6** | **87.6** | **73.4** | **61.2** | **77.7** | **74.2** |
+
+Numbers, missing entries (`-`), asterisk markers, and bold emphasis are retained
+from Table 2 of the manuscript. These are the paper's comparison results, not
+new measurements of every method using this inference package.
+
+### Accuracy and efficiency
+
 ![COCO val2017 AP versus TensorRT latency, parameter count, and GFLOPs for VFR and lightweight pose estimators.](assets/comparison_metrics.png)
 
 **Figure 4. Comparisons with lightweight pose estimation models in terms of latency,
@@ -52,11 +90,26 @@ RTX2080Ti GPU.
 
 | Model | COCO AP | Parameters (M) | GFLOPs | TensorRT latency (ms) |
 | --- | ---: | ---: | ---: | ---: |
+| YOLOv8-N | 50.4 | 3.3 | 9.2 | 1.18 |
+| YOLOv8-S | 60.0 | 11.6 | 30.2 | 2.09 |
+| YOLOv8-M | 65.0 | 26.4 | 81.0 | 4.13 |
+| YOLOv8-L | 67.6 | 44.4 | 168.6 | 5.92 |
+| YOLO11-N | 50.0 | 2.9 | 7.4 | 1.70 |
+| YOLO11-S | 58.9 | 9.9 | 23.1 | 2.39 |
+| YOLO11-M | 64.9 | 20.9 | 71.4 | 3.63 |
+| YOLO11-L | 66.1 | 26.1 | 90.3 | 4.76 |
+| YOLO26-N | 57.2 | 2.9 | 7.5 | 1.80 |
+| YOLO26-S | 63.0 | 10.4 | 23.9 | 2.39 |
+| YOLO26-M | 68.8 | 21.5 | 73.1 | 3.72 |
+| YOLO26-L | 70.4 | 25.9 | 91.3 | 4.76 |
 | VFR-S | **67.6** | 11.75 | 33.3 | 2.58 |
 | VFR-M | **70.6** | 21.02 | 67.58 | 3.72 |
 
-The figures and numbers above are reproduced from the manuscript. The latency
-column describes the **paper's TensorRT FP16 benchmark**, not the runtime of the
+The efficiency table lists the data used to plot Figure 4, with the N/S/M/L
+variants shown individually. YOLOv8 and YOLO11 use NMS; YOLO26 and VFR are
+end-to-end and NMS-free. The figure data and manuscript table values are retained;
+only the web image resolution and PNG palette are optimized for faster loading.
+The latency column describes the **paper's TensorRT FP16 benchmark**, not the runtime of the
 TorchScript evaluator below. This package does not include TensorRT engines,
 export tools, or the TensorRT benchmark. Parameter and operation counts follow
 the paper's reporting convention, not serialized file size.
